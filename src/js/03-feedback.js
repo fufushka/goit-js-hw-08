@@ -29,13 +29,12 @@ const refs = {
 };
 
 const STORAGE_KEY = 'feedback-form-state';
-formState = {};
-const onFormChange = throttle(event => {
-  if (event.target.nodeName === 'INPUT') {
-    formState.email = event.target.value.trim();
-  } else {
-    formState.message = event.target.value.trim();
-  }
+
+const onFormChange = throttle(() => {
+  const formState = {
+    email: refs.messageInput.value.trim(),
+    message: refs.emailInput.value.trim(),
+  };
 
   //   console.log(formState);
 
