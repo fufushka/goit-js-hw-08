@@ -11,4 +11,4 @@ player.on(
     localStorage.setItem(STORAGE_KEY, seconds);
   }, 1000)
 );
-player.setCurrentTime(localStorage.getItem(STORAGE_KEY || 0));
+player.setCurrentTime(localStorage.getItem(STORAGE_KEY) || 0);

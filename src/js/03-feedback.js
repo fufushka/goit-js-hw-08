@@ -29,16 +29,13 @@ const refs = {
 };
 
 const STORAGE_KEY = 'feedback-form-state';
-
+const formState = {};
 const onFormChange = throttle(() => {
-  const formState = {
-    email: refs.messageInput.value.trim(),
-    message: refs.emailInput.value.trim(),
-  };
+  (formState.email = refs.emailInput.value.trim()),
+    (formState.message = refs.messageInput.value.trim()),
+    //   console.log(formState);
 
-  //   console.log(formState);
-
-  save(STORAGE_KEY, formState);
+    save(STORAGE_KEY, formState);
 }, 500);
 
 refs.form.addEventListener('input', onFormChange);
@@ -62,9 +59,5 @@ function onSubmitForm(event) {
   refs.emailInput.value = '';
   refs.messageInput.value = '';
 
-  const formState = {
-    email: refs.emailInput.value,
-    message: refs.messageInput.value,
-  };
   console.log(formState);
 }
